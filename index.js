@@ -4,7 +4,7 @@ var bodyParser = require("body-parser");
 
 var app = express();
 var PORT = process.env.port;
-var REST_PORT = process.env.PORT || process.env.port || process.env.OPENSHIFT_NODEJS_PORT || 8080;
+var REST_PORT = process.env.PORT || process.env.port || process.env.OPENSHIFT_NODEJS_PORT || 5100;
 var SEVER_IP_ADDR = process.env.OPENSHIFT_NODEJS_IP || process.env.HEROKU_IP ;
 
 app.use(bodyParser.urlencoded({ extended: true }));
