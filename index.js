@@ -4,6 +4,8 @@ var bodyParser = require("body-parser");
 
 var app = express();
 var PORT = process.env.port;
+var REST_PORT = (process.env.PORT || process.env.port || process.env.OPENSHIFT_NODEJS_PORT || 8080);
+var SEVER_IP_ADDR = process.env.OPENSHIFT_NODEJS_IP || process.env.HEROKU_IP || '127.0.0.1';
 
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
@@ -29,5 +31,5 @@ alexaApp.intent("nameIntent", {
 
 alexaApp.express(app, "/echo/");
 
-app.listen(PORT);
-console.log("Listening on port " + PORT + ", try http://localhost:" + PORT + "/echo/test");
+app.listen(SEVER_IP_ADDR,REST_PORT);
+console.log("Listening on port " + REST_PORT + ", try http://localhost:" + REST_PORT + "/echo/test");
