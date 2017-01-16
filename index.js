@@ -31,5 +31,5 @@ alexaApp.intent("nameIntent", {
 
 alexaApp.express(app, "/echo/");
 
-app.listen(SEVER_IP_ADDR,REST_PORT);
+app.listen(process.env.port || process.env.PORT || 3978,SEVER_IP_ADDR);
 console.log("Listening on port " + REST_PORT + ", try http://localhost:" + REST_PORT + "/echo/test");
